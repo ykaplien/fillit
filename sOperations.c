@@ -15,7 +15,7 @@ int     mSize(int num)
     return (i * i);
 }
 
-void    sFill(t_elements *figure, char *buff)
+void    sFill(t_elements **figure, char *buff)
 {
     int     ind;
     int     i;
@@ -28,40 +28,84 @@ void    sFill(t_elements *figure, char *buff)
         ind = 0;
         while (ind <= 20)
         {
-            figure[i].tetr[ind] = buff[ind];
+            figure[i]->tetr[ind] = buff[ind];
             ind++;
         }
-        figure[i].tetr[21] = '\0';
-        printf("%s", figure[i].tetr);
-        figure[i].field = letter++;
+        figure[i]->tetr[21] = '\0';
+        printf("%s", figure[i]->tetr);
+        figure[i]->field = letter++;
         i++;
         buff += 21;
     }
 }
 
-void    sShuffle(t_elements *figure, char *buff)
+t_elements  *sShuffle(t_elements **figure, char *buff)
 {
     int     i;
-    int     ind;
-    int     hashs;
 
     i = 0;
-    ind = 0;
     while (i < tCount(buff))
     {
-        hashs = 0;
-        while(figure[i].tetr[ind] != '#' && figure[i].tetr[ind])
-            ind++;
-        ft_memmove(figure[i].tetr[0], figure[i].tetr[ind], 20 - ind);
-        ind = 0;
-        while (figure[i].tetr[ind])
-        {
-            while (figure[i].tetr[ind++] == '#' && hashs <= 4)
-                hashs++;
-            if (figure[i].tetr[ind] == '#')
-                figure[i].tetr[ind] = '.';
-            ind++;
-        }
+        sShuffleProcess(figure[i]->field, figure[i]->tetr);
         i++;
     }
+    return (figure);
+}
+
+void    sShuffleProcess(char field, char *string)
+{
+    int     ind;
+    int     xShift;
+    int     yShift;
+
+    ind = 0;
+    xShift = sShuffleX(&string);
+    yShift = sShuffleY(&string);
+    while (string[ind])
+    {
+        if (string[ind] == '#')
+        {
+            string[ind] = '.';
+            string[ind - (xShift + (5 * yShift))] = field;
+        }
+        ind++;
+    }
+}
+
+int     sShuffleY(char *string)
+{
+    int     shift;
+    int     ind;
+
+    ind = 0;
+    while (string[ind] != '#')
+        ind++;
+    shift = ind / 5;
+    while (ind < 20)
+    {
+        if (string[ind] == '#')
+            if (shift > (ind / 5))
+                shift = ind / 5;
+        ind++;
+    }
+    return (shift);
+}
+
+int     sShuffleX(char *string)
+{
+    int     shift;
+    int     ind;
+
+    ind = 0;
+    while (string[ind] != '#')
+        ind++;
+    shift = ind % 5;
+    while (ind < 20)
+    {
+        if (string[ind] == '#')
+            if (shift > (ind % 5))
+                shift = ind % 5;
+        ind++;
+    }
+    return (shift);
 }

@@ -17,7 +17,10 @@ int		ft_strlen(char *s)
 
 	len = 0;
 	ind = 0;
-	while (s[ind++] != '\0')
-		len++;
+	while (s[ind])
+    {
+        len++;
+        ind++;
+    }
 	return (len);
 }

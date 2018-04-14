@@ -33,13 +33,17 @@ int                 tNewl(char *buff);
 int                 tSmbls(char *buff);
 int                 tRelat(char *b);
 int		            tCount(char *buff);
-int                 validation(char *buff, int argc, char **argv);
+char                *validation(char *buff, int argc, char **argv);
 int                 sMalloc(t_elements *figure, char *buff);
 void	            ft_bzero(void *s, int n);
 void	            ft_putchar(char c);
 void	            ft_putstr(char const *s);
 int		            ft_strlen(char *s);
 int                 mSize(int num);
-void            	*ft_memmove(char *dst, char *src, int len);
+void                sFill(t_elements **figure, char *buff);
+t_elements          *sShuffle(t_elements **figure, char *buff);
+void                sShuffleProcess(char field, char *string);
+int                 sShuffleY(char *string);
+int                 sShuffleX(char *string);
 
 #endif
