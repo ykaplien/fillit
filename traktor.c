@@ -12,30 +12,27 @@
 
 #include "fillit.h"
 
-int		main(int argc, char **argv)
+int		    main(int argc, char **argv)
 {
 	char		*buff;
-	t_elements	*figure;
+	t_global	*figure;
 
     if (buff = validation(buff, argc, argv))
-        if (sMalloc(figure, buff))
-            sFill(&figure, buff);
-            sShuffle(&figure, buff);
+    {
+        figure = (t_global*)malloc(sizeof(t_global));
+        figure->ter = (t_elements*)malloc(sizeof(t_elements) * tCount(buff));
+        sFill(figure, buff);
+        sShuffle(figure, buff);
+    }
 
 	return (0);
 }
 
-char    *validation(char *buff, int argc, char **argv)
+char        *validation(char *buff, int argc, char **argv)
 {
     if (argCount(argc, argv))
         if ((buff = mRead(argv, buff)))
             if (tValidation(buff))
                 return (buff);
     return (0);
-}
-
-int    sMalloc(t_elements *figure, char *buff)
-{
-    figure = (t_elements*)malloc(sizeof(t_elements) * tCount(buff));
-    return (figure);
 }

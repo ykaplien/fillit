@@ -15,7 +15,7 @@ int     mSize(int num)
     return (i * i);
 }
 
-void    sFill(t_elements **figure, char *buff)
+void    sFill(t_global *figure, char *buff)
 {
     int     ind;
     int     i;
@@ -26,27 +26,27 @@ void    sFill(t_elements **figure, char *buff)
     while (*buff)
     {
         ind = 0;
+        figure->ter[i].tetr = (char *)malloc(sizeof(char) * 21);
         while (ind <= 20)
         {
-            figure[i]->tetr[ind] = buff[ind];
+            figure->ter[i].tetr[ind] = buff[ind];
             ind++;
         }
-        figure[i]->tetr[21] = '\0';
-        printf("%s", figure[i]->tetr);
-        figure[i]->field = letter++;
+        figure->ter[i].tetr[21] = '\0';
+        figure->ter[i].field = letter++;
         i++;
         buff += 21;
     }
 }
 
-t_elements  *sShuffle(t_elements **figure, char *buff)
+t_global  *sShuffle(t_global *figure, char *buff)
 {
     int     i;
 
     i = 0;
     while (i < tCount(buff))
     {
-        sShuffleProcess(figure[i]->field, figure[i]->tetr);
+        sShuffleProcess(figure->ter[i].field, figure->ter[i].tetr);
         i++;
     }
     return (figure);
@@ -59,8 +59,8 @@ void    sShuffleProcess(char field, char *string)
     int     yShift;
 
     ind = 0;
-    xShift = sShuffleX(&string);
-    yShift = sShuffleY(&string);
+    xShift = sShuffleX(string);
+    yShift = sShuffleY(string);
     while (string[ind])
     {
         if (string[ind] == '#')
