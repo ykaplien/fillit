@@ -3,8 +3,6 @@
 
 CMakeFiles/fillit.dir/ft_bzero.c.o: ../ft_bzero.c
 
-CMakeFiles/fillit.dir/ft_memmove.c.o: ../ft_memmove.c
-
 CMakeFiles/fillit.dir/ft_putchar.c.o: ../fillit.h
 CMakeFiles/fillit.dir/ft_putchar.c.o: ../ft_putchar.c
 

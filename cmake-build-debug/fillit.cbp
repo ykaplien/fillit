@@ -8,38 +8,38 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/Users/ykaplien/fillit/cmake-build-debug"/>
+				<Option working_dir="/Users/ykaplien/fillit1/fillit/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit1/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit1/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit1/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit1/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/Users/ykaplien/fillit/cmake-build-debug"/>
+				<Option working_dir="/Users/ykaplien/fillit1/fillit/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit1/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit1/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit1/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit1/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/Users/ykaplien/fillit/cmake-build-debug"/>
+				<Option working_dir="/Users/ykaplien/fillit1/fillit/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit1/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit1/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit1/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit1/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="fillit">
-				<Option output="/Users/ykaplien/fillit/cmake-build-debug/fillit" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/ykaplien/fillit/cmake-build-debug"/>
+				<Option output="/Users/ykaplien/fillit1/fillit/cmake-build-debug/fillit" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/ykaplien/fillit1/fillit/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -52,15 +52,15 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 fillit"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit1/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 fillit"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit1/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit1/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit1/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="fillit/fast">
-				<Option output="/Users/ykaplien/fillit/cmake-build-debug/fillit" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/ykaplien/fillit/cmake-build-debug"/>
+				<Option output="/Users/ykaplien/fillit1/fillit/cmake-build-debug/fillit" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/ykaplien/fillit1/fillit/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -73,47 +73,44 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 fillit/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit1/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 fillit/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit1/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit1/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/ykaplien/fillit1/fillit/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/ykaplien/fillit/fil_valid.txt">
+		<Unit filename="/Users/ykaplien/fillit1/fillit/fil_valid.txt">
 			<Option target="fillit"/>
 		</Unit>
-		<Unit filename="/Users/ykaplien/fillit/fillit.h">
+		<Unit filename="/Users/ykaplien/fillit1/fillit/fillit.h">
 			<Option target="fillit"/>
 		</Unit>
-		<Unit filename="/Users/ykaplien/fillit/ft_bzero.c">
+		<Unit filename="/Users/ykaplien/fillit1/fillit/ft_bzero.c">
 			<Option target="fillit"/>
 		</Unit>
-		<Unit filename="/Users/ykaplien/fillit/ft_memmove.c">
+		<Unit filename="/Users/ykaplien/fillit1/fillit/ft_putchar.c">
 			<Option target="fillit"/>
 		</Unit>
-		<Unit filename="/Users/ykaplien/fillit/ft_putchar.c">
+		<Unit filename="/Users/ykaplien/fillit1/fillit/ft_putstr.c">
 			<Option target="fillit"/>
 		</Unit>
-		<Unit filename="/Users/ykaplien/fillit/ft_putstr.c">
+		<Unit filename="/Users/ykaplien/fillit1/fillit/ft_strcpy.c">
 			<Option target="fillit"/>
 		</Unit>
-		<Unit filename="/Users/ykaplien/fillit/ft_strcpy.c">
+		<Unit filename="/Users/ykaplien/fillit1/fillit/ft_strlen.c">
 			<Option target="fillit"/>
 		</Unit>
-		<Unit filename="/Users/ykaplien/fillit/ft_strlen.c">
+		<Unit filename="/Users/ykaplien/fillit1/fillit/sOperations.c">
 			<Option target="fillit"/>
 		</Unit>
-		<Unit filename="/Users/ykaplien/fillit/sOperations.c">
+		<Unit filename="/Users/ykaplien/fillit1/fillit/security.c">
 			<Option target="fillit"/>
 		</Unit>
-		<Unit filename="/Users/ykaplien/fillit/security.c">
+		<Unit filename="/Users/ykaplien/fillit1/fillit/traktor.c">
 			<Option target="fillit"/>
 		</Unit>
-		<Unit filename="/Users/ykaplien/fillit/traktor.c">
-			<Option target="fillit"/>
-		</Unit>
-		<Unit filename="/Users/ykaplien/fillit/CMakeLists.txt">
+		<Unit filename="/Users/ykaplien/fillit1/fillit/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

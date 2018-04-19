@@ -5,9 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/fillit.dir/ft_strcpy.c.o"
   "CMakeFiles/fillit.dir/ft_strlen.c.o"
   "CMakeFiles/fillit.dir/security.c.o"
-  "CMakeFiles/fillit.dir/ft_memmove.c.o"
-  "CMakeFiles/fillit.dir/traktor.c.o"
   "CMakeFiles/fillit.dir/sOperations.c.o"
+  "CMakeFiles/fillit.dir/traktor.c.o"
   "fillit.pdb"
   "fillit"
 )

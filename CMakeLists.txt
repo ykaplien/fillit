@@ -12,5 +12,5 @@ add_executable(fillit
         ft_strcpy.c
         ft_strlen.c
         security.c
-        ft_memmove.c
-        traktor.c sOperations.c)
+        sOperations.c
+        traktor.c)

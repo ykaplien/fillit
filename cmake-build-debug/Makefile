@@ -48,10 +48,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/ykaplien/fillit
+CMAKE_SOURCE_DIR = /Users/ykaplien/fillit1/fillit
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/ykaplien/fillit/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/ykaplien/fillit1/fillit/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ykaplien/fillit/cmake-build-debug/CMakeFiles /Users/ykaplien/fillit/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ykaplien/fillit1/fillit/cmake-build-debug/CMakeFiles /Users/ykaplien/fillit1/fillit/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ykaplien/fillit/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/ykaplien/fillit1/fillit/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -149,33 +149,6 @@ ft_bzero.s: ft_bzero.c.s
 ft_bzero.c.s:
 	$(MAKE) -f CMakeFiles/fillit.dir/build.make CMakeFiles/fillit.dir/ft_bzero.c.s
 .PHONY : ft_bzero.c.s
-
-ft_memmove.o: ft_memmove.c.o
-
-.PHONY : ft_memmove.o
-
-# target to build an object file
-ft_memmove.c.o:
-	$(MAKE) -f CMakeFiles/fillit.dir/build.make CMakeFiles/fillit.dir/ft_memmove.c.o
-.PHONY : ft_memmove.c.o
-
-ft_memmove.i: ft_memmove.c.i
-
-.PHONY : ft_memmove.i
-
-# target to preprocess a source file
-ft_memmove.c.i:
-	$(MAKE) -f CMakeFiles/fillit.dir/build.make CMakeFiles/fillit.dir/ft_memmove.c.i
-.PHONY : ft_memmove.c.i
-
-ft_memmove.s: ft_memmove.c.s
-
-.PHONY : ft_memmove.s
-
-# target to generate assembly for a file
-ft_memmove.c.s:
-	$(MAKE) -f CMakeFiles/fillit.dir/build.make CMakeFiles/fillit.dir/ft_memmove.c.s
-.PHONY : ft_memmove.c.s
 
 ft_putchar.o: ft_putchar.c.o
 
@@ -378,9 +351,6 @@ help:
 	@echo "... ft_bzero.o"
 	@echo "... ft_bzero.i"
 	@echo "... ft_bzero.s"
-	@echo "... ft_memmove.o"
-	@echo "... ft_memmove.i"
-	@echo "... ft_memmove.s"
 	@echo "... ft_putchar.o"
 	@echo "... ft_putchar.i"
 	@echo "... ft_putchar.s"

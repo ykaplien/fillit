@@ -16,6 +16,8 @@ int		    main(int argc, char **argv)
 {
 	char		*buff;
 	t_global	*figure;
+    int i = 0;
+    int j = 0;
 
     if (buff = validation(buff, argc, argv))
     {

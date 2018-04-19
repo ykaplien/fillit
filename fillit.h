@@ -21,7 +21,8 @@
 
 typedef struct		s_elements
 {
-	char            *tetr;
+	int 			x[4];
+	int 			y[4];
 	char 			field;
 }					t_elements;
 
@@ -43,11 +44,9 @@ void	            ft_bzero(void *s, int n);
 void	            ft_putchar(char c);
 void	            ft_putstr(char const *s);
 int		            ft_strlen(char *s);
-int                 mSize(int num);
 void                sFill(t_global *figure, char *buff);
-t_global          	*sShuffle(t_global *figure, char *buff);
-void                sShuffleProcess(char field, char *string);
-int                 sShuffleY(char *string);
-int                 sShuffleX(char *string);
+void    			sShuffle(t_global *figure, char *buff);
+void    			sShuffleX(t_global *figure, int i);
+void    			sShuffleY(t_global *figure, int i);
 
 #endif
