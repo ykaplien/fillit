@@ -123,6 +123,33 @@ fillit/fast:
 	$(MAKE) -f CMakeFiles/fillit.dir/build.make CMakeFiles/fillit.dir/build
 .PHONY : fillit/fast
 
+backtrack.o: backtrack.c.o
+
+.PHONY : backtrack.o
+
+# target to build an object file
+backtrack.c.o:
+	$(MAKE) -f CMakeFiles/fillit.dir/build.make CMakeFiles/fillit.dir/backtrack.c.o
+.PHONY : backtrack.c.o
+
+backtrack.i: backtrack.c.i
+
+.PHONY : backtrack.i
+
+# target to preprocess a source file
+backtrack.c.i:
+	$(MAKE) -f CMakeFiles/fillit.dir/build.make CMakeFiles/fillit.dir/backtrack.c.i
+.PHONY : backtrack.c.i
+
+backtrack.s: backtrack.c.s
+
+.PHONY : backtrack.s
+
+# target to generate assembly for a file
+backtrack.c.s:
+	$(MAKE) -f CMakeFiles/fillit.dir/build.make CMakeFiles/fillit.dir/backtrack.c.s
+.PHONY : backtrack.c.s
+
 ft_bzero.o: ft_bzero.c.o
 
 .PHONY : ft_bzero.o
@@ -348,6 +375,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... fillit"
+	@echo "... backtrack.o"
+	@echo "... backtrack.i"
+	@echo "... backtrack.s"
 	@echo "... ft_bzero.o"
 	@echo "... ft_bzero.i"
 	@echo "... ft_bzero.s"

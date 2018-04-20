@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/Users/ykaplien/fillit1/fillit/backtrack.c
+fillit.h
+/Users/ykaplien/fillit1/fillit/fillit.h
+
 /Users/ykaplien/fillit1/fillit/fillit.h
 unistd.h
 -

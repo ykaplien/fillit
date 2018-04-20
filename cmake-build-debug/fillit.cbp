@@ -80,6 +80,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/ykaplien/fillit1/fillit/backtrack.c">
+			<Option target="fillit"/>
+		</Unit>
 		<Unit filename="/Users/ykaplien/fillit1/fillit/fil_valid.txt">
 			<Option target="fillit"/>
 		</Unit>

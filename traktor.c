@@ -16,17 +16,17 @@ int		    main(int argc, char **argv)
 {
 	char		*buff;
 	t_global	*figure;
-    int i = 0;
-    int j = 0;
 
-    if (buff = validation(buff, argc, argv))
+    if ((buff = validation(buff, argc, argv)))
     {
         figure = (t_global*)malloc(sizeof(t_global));
         figure->ter = (t_elements*)malloc(sizeof(t_elements) * tCount(buff));
         sFill(figure, buff);
+        print1(figure);
         sShuffle(figure, buff);
+        print1(figure);
+        backtracking(buff, figure);
     }
-
 	return (0);
 }
 

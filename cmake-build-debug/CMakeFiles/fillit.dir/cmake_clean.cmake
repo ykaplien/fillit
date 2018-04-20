@@ -7,6 +7,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/fillit.dir/security.c.o"
   "CMakeFiles/fillit.dir/sOperations.c.o"
   "CMakeFiles/fillit.dir/traktor.c.o"
+  "CMakeFiles/fillit.dir/backtrack.c.o"
   "fillit.pdb"
   "fillit"
 )

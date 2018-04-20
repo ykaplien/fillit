@@ -12,19 +12,19 @@ void    sFill(t_global *figure, char *buff)
     letter = 'A';
     while (*buff)
     {
-        ind = 0;
+        ind = -1;
         while (ind <= 20)
         {
-            if (buff[ind] == '#')
+            if (buff[++ind] == '#')
             {
                 figure->ter[i].x[j] = ind % 5;
                 figure->ter[i].y[j] = ind / 5;
                 j++;
             }
-            ind++;
         }
         figure->ter[i].field = letter++;
         i++;
+        j = 0;
         buff += 21;
     }
 }
@@ -44,10 +44,15 @@ void    sShuffle(t_global *figure, char *buff)
 
 void    sShuffleX(t_global *figure, int i)
 {
-    int     a = figure->ter[i].x[0];
-    int     b = figure->ter[i].x[1];
-    int     c = figure->ter[i].x[2];
-    int     d = figure->ter[i].x[3];
+    int     a;
+    int     b;
+    int     c;
+    int     d;
+
+    a = figure->ter[i].x[0];
+    b = figure->ter[i].x[1];
+    c = figure->ter[i].x[2];
+    d = figure->ter[i].x[3];
     while (a != 0 || b != 0 || c != 0 || d != 0)
     {
         if (a == 0 || b == 0 || c == 0 || d == 0)
@@ -65,10 +70,15 @@ void    sShuffleX(t_global *figure, int i)
 
 void    sShuffleY(t_global *figure, int i)
 {
-    int     a = figure->ter[i].y[0];
-    int     b = figure->ter[i].y[1];
-    int     c = figure->ter[i].y[2];
-    int     d = figure->ter[i].y[3];
+    int     a;
+    int     b;
+    int     c;
+    int     d;
+
+    a = figure->ter[i].y[0];
+    b = figure->ter[i].y[1];
+    c = figure->ter[i].y[2];
+    d = figure->ter[i].y[3];
     while (a != 0 || b != 0 || c != 0 || d != 0)
     {
         if (a == 0 || b == 0 || c == 0 || d == 0)
