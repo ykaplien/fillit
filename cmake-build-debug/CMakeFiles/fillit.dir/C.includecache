@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/Users/ykaplien/fillit1/fillit/backtrack.c
+/Users/ykaplien/fillit/backtrack.c
 fillit.h
-/Users/ykaplien/fillit1/fillit/fillit.h
+/Users/ykaplien/fillit/fillit.h
 
-/Users/ykaplien/fillit1/fillit/fillit.h
+/Users/ykaplien/fillit/fillit.h
 unistd.h
 -
 stdio.h
@@ -20,31 +20,31 @@ stdlib.h
 fcntl.h
 -
 
-/Users/ykaplien/fillit1/fillit/ft_bzero.c
+/Users/ykaplien/fillit/ft_bzero.c
 
-/Users/ykaplien/fillit1/fillit/ft_putchar.c
+/Users/ykaplien/fillit/ft_putchar.c
 fillit.h
-/Users/ykaplien/fillit1/fillit/fillit.h
+/Users/ykaplien/fillit/fillit.h
 
-/Users/ykaplien/fillit1/fillit/ft_putstr.c
+/Users/ykaplien/fillit/ft_putstr.c
 fillit.h
-/Users/ykaplien/fillit1/fillit/fillit.h
+/Users/ykaplien/fillit/fillit.h
 
-/Users/ykaplien/fillit1/fillit/ft_strcpy.c
+/Users/ykaplien/fillit/ft_strcpy.c
 fillit.h
-/Users/ykaplien/fillit1/fillit/fillit.h
+/Users/ykaplien/fillit/fillit.h
 
-/Users/ykaplien/fillit1/fillit/ft_strlen.c
+/Users/ykaplien/fillit/ft_strlen.c
 
-/Users/ykaplien/fillit1/fillit/sOperations.c
+/Users/ykaplien/fillit/sOperations.c
 fillit.h
-/Users/ykaplien/fillit1/fillit/fillit.h
+/Users/ykaplien/fillit/fillit.h
 
-/Users/ykaplien/fillit1/fillit/security.c
+/Users/ykaplien/fillit/security.c
 fillit.h
-/Users/ykaplien/fillit1/fillit/fillit.h
+/Users/ykaplien/fillit/fillit.h
 
-/Users/ykaplien/fillit1/fillit/traktor.c
+/Users/ykaplien/fillit/traktor.c
 fillit.h
-/Users/ykaplien/fillit1/fillit/fillit.h
+/Users/ykaplien/fillit/fillit.h
 

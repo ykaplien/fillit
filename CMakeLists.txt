@@ -4,6 +4,7 @@ project(fillit)
 set(CMAKE_CXX_STANDARD 11)
 
 add_executable(fillit
+        backtrack.c
         fil_valid.txt
         fillit.h
         ft_bzero.c
@@ -13,4 +14,4 @@ add_executable(fillit
         ft_strlen.c
         security.c
         sOperations.c
-        traktor.c backtrack.c)
+        traktor.c)

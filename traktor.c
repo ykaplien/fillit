@@ -22,9 +22,12 @@ int		    main(int argc, char **argv)
         figure = (t_global*)malloc(sizeof(t_global));
         figure->ter = (t_elements*)malloc(sizeof(t_elements) * tCount(buff));
         sFill(figure, buff);
-        print1(figure);
+        printf("FILL\n\n");
+        print_check(figure,buff);
         sShuffle(figure, buff);
-        print1(figure);
+        printf("SHUFFLE\n\n");
+        print_check(figure,buff);
+//        print1(figure);
         backtracking(buff, figure);
     }
 	return (0);
@@ -37,4 +40,26 @@ char        *validation(char *buff, int argc, char **argv)
             if (tValidation(buff))
                 return (buff);
     return (0);
+}
+
+void        print_check(t_global *figure, char *buff)
+{
+    int a = 0;
+    int l = 0;
+    int k = tCount(buff);
+    char **map;
+
+    map = mCreate(4);
+    while (l < k)
+    {
+        a = 0;
+        while (a < 4)
+        {
+            map[figure->ter[l].y[a]][figure->ter[l].x[a]] = figure->ter[l].field;
+            a++;
+        }
+        print(map, 4);
+        mapSet(map, 4);
+        l++;
+    }
 }

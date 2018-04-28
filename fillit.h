@@ -49,14 +49,16 @@ void    			sShuffle(t_global *figure, char *buff);
 void    			sShuffleX(t_global *figure, int i);
 void    			sShuffleY(t_global *figure, int i);
 char                **mCreate(int size);
-int                 *mDot(char **map, int *yx);
-int                 mCheck(t_elements figure, char **map, int *yx);
+int                 *mDot(char **map, int *yx, int size);
+int                 mCheck(t_elements figure, char **map, int *yx, int size);
 void                mSet(t_elements figure, char **map, int *yx, char letter);
 char                **mCreate(int size);
 void                backtracking(char *buff, t_global *figure);
 void                mapSet(char **map, int size);
-void                 print(char **map);
-void                      print1(t_global *figure);
+void                print(char **map, int size);
+void                print1(t_elements figure);
+char                **mRewrite(char **map, int size1, int size2);
+void        print_check(t_global *figure, char *buff);
 
 
 #endif

@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/fillit.dir/backtrack.c.o"
   "CMakeFiles/fillit.dir/ft_bzero.c.o"
   "CMakeFiles/fillit.dir/ft_putchar.c.o"
   "CMakeFiles/fillit.dir/ft_putstr.c.o"
@@ -7,7 +8,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/fillit.dir/security.c.o"
   "CMakeFiles/fillit.dir/sOperations.c.o"
   "CMakeFiles/fillit.dir/traktor.c.o"
-  "CMakeFiles/fillit.dir/backtrack.c.o"
   "fillit.pdb"
   "fillit"
 )

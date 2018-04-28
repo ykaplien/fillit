@@ -86,7 +86,6 @@ int     tNewl(char *buff)
     if (buff[index + 4] == '\n' && buff[index + 9] == '\n' &&
         buff[index + 14] == '\n' && buff[index + 19] == '\n')
         return (1);
-
     error(4);
     return (0);
 }
@@ -122,7 +121,9 @@ int     tRelat(char *b)
     def = 0;
     while (i <= 20)
     {
-        if (b[i] == '#' && (b[i + 1] == '#' || b[i + 5] == '#'))
+        if (b[i] == '#' && b[i + 1] == '#')
+            def++;
+        if (b[i] == '#' && b[i + 5] == '#')
             def++;
         i++;
     }
