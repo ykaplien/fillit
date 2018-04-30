@@ -55,7 +55,7 @@ void    sShuffleX(t_global *figure, int i)
     b = figure->ter[i].x[1];
     c = figure->ter[i].x[2];
     d = figure->ter[i].x[3];
-    while (a != 0 && b != 0 && c != 0 && d != 0)
+    while (a != 0) //&& b != 0 && c != 0 && d != 0)
     {
         a -= 1;
         b -= 1;
@@ -79,7 +79,7 @@ void    sShuffleY(t_global *figure, int i)
     b = figure->ter[i].y[1];
     c = figure->ter[i].y[2];
     d = figure->ter[i].y[3];
-    while (a != 0 && b != 0 && c != 0 && d != 0)
+    while (a != 0 )//&& b != 0 && c != 0 && d != 0)
     {
         a -= 1;
         b -= 1;

@@ -44,7 +44,15 @@ int     mCheck(t_elements f, char **map, int *yx, int n)
     return (0);
 }
 
-
+void    mDel(t_elements figure, char **map, int *yx)
+{
+    map[yx[0] + figure.y[0]][yx[1] + figure.x[0]] = '.';
+    map[yx[0] + figure.y[1]][yx[1] + figure.x[1]] = '.';
+    map[yx[0] + figure.y[2]][yx[1] + figure.x[2]] = '.';
+    map[yx[0] + figure.y[3]][yx[1] + figure.x[3]] = '.';
+    yx[0] = 0;
+    yx[1] = 0;
+}
 
 void    mSet(t_elements figure, char **map, int *yx, char letter)
 {
@@ -92,34 +100,63 @@ void    backtracking(char *buff, t_global *figure)
     int     size;
     int     yx[2];
     int     i;
+    int     z;
     char    **map;
     char    **mCopy;
 
-    size = 2;
+    size = 2;//make function which count init map size.
     i = 0;
     yx[0] = 0;
     yx[1] = 0;
     map = mCreate(size);
-    while (i < tCount(buff))
+    z = tCount(buff);
+    while (!bProcces(i, z, figure, map, yx, size))
+    {
+        mCopy = mRewrite(map, size, size++);
+        map = mRewrite(mCopy, size, size - 1);
+        yx[0] = 0;
+        yx[1] = 0;
+//        bProcces(map, yx, figure, size, i);
+//        i++;
+//        if (mDot(map, yx, size))
+//            if (mCheck(figure->ter[i], map, yx, size))
+//                mSet(figure->ter[i], map, yx, figure->ter[i++].field);
+//            else
+//                cPlus(yx, size);
+//        else
+//        {
+//            mCopy = mRewrite(map, size, size++);
+//            map = mRewrite(mCopy, size, size - 1);
+//            yx[0] = 0;
+//            yx[1] = 0;
+//        }
+    }
+    print(map,size);
+}
+
+int bProcces(int i, int z, t_global *figure, char **map, int *yx, int size)
+{
+    while (i < z)
     {
         if (mDot(map, yx, size))
             if (mCheck(figure->ter[i], map, yx, size))
             {
                 mSet(figure->ter[i], map, yx, figure->ter[i++].field);
-                print(map,size);
+                if (bProcces(i + 1, z, figure, map, yx, size))
+                    return (1);
+                else
+                {
+                    mDel(figure->ter[i], map, yx);
+                    if (cPlus(yx, size))
+                        ;
+                    else
+                        i++;
+                }
             }
-            else
-                cPlus(yx, size);
-        else
-        {
-            mCopy = mRewrite(map, size, size++);
-            map = mRewrite(mCopy, size, size - 1);
-            yx[0] = 0;
-            yx[1] = 0;
-        }
     }
-    print(map,size);
+    return (0);
 }
+
 
 char    **mRewrite(char **map, int size1, int size2)
 {
