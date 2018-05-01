@@ -1,23 +1,50 @@
 #include "fillit.h"
 
-int     *mDot(char **map, int *yx, int n)
+int    backtacking(t_global *figure)
+{
+    while (figure->i < figure->z)
+    {
+        if (mDot(figure)) {
+            figure->i++;
+            if (backtacking(figure))
+                return (1);
+            else
+                figure->i--;
+        } else {
+            mapIter(figure);
+        }
+    }
+    return (0);
+}
+
+void    mapIter(t_global *figure)
+{
+    figure->mCopy = mRewrite(figure->m, figure->size, figure->size++);
+    figure->m = mRewrite(figure->mCopy, figure->size, figure->size - 1);
+    figure->yx[0] = 0;
+    figure->yx[1] = 0;
+}
+
+int     mDot(t_global *f)
 {
     int     x;
     int     y;
 
-    y = yx[0];
-    while (y < n)
+    y = f->yx[0];
+    while (y < f->size)
     {
-        x = yx[1];
-        while (x < n)
+        x = f->yx[1];
+        while (x < f->size)
         {
-            if (map[y][x] == '.')
+            if (f->m[y][x] == '.')
             {
-                yx[0] = y;
-                yx[1] = x;
-                if (yx[0] == n - 1 && yx[1] == n - 1)
+                f->yx[0] = y;
+                f->yx[1] = x;
+                if (f->yx[0] == f->size - 1
+                    && f->yx[1] == f->size - 1 && f->i == 0)
                     return (0);
-                return (1);
+                mCheck(f);
+//                return (1);
             }
             x++;
         }
@@ -26,196 +53,125 @@ int     *mDot(char **map, int *yx, int n)
     return (0);
 }
 
-int     mCheck(t_elements f, char **map, int *yx, int n)
+void     mCheck(t_global *f)
 {
     int     count;
 
     count = 0;
-    if (yx[0] + f.y[0] < n && yx[1] + f.x[0] < n && map[yx[0] + f.y[0]][yx[1] + f.x[0]] == '.')
+    if (f->yx[0] + f->t[f->i].y[0] < f->size
+        && f->yx[1] + f->t[f->i].x[0] < f->size
+        && f->m[f->yx[0] + f->t[f->i].y[0]][f->yx[1] + f->t[f->i].x[0]] == '.')
         count++;
-    if (yx[0] + f.y[1] < n && yx[1] + f.x[1] < n && map[yx[0] + f.y[1]][yx[1] + f.x[1]] == '.')
+    if (f->yx[0] + f->t[f->i].y[1] < f->size
+        && f->yx[1] + f->t[f->i].x[1] < f->size
+        && f->m[f->yx[0] + f->t[f->i].y[1]][f->yx[1] + f->t[f->i].x[1]] == '.')
         count++;
-    if (yx[0] + f.y[2] < n && yx[1] + f.x[2] < n && map[yx[0] + f.y[2]][yx[1] + f.x[2]] == '.')
+    if (f->yx[0] + f->t[f->i].y[2] < f->size
+        && f->yx[1] + f->t[f->i].x[2] < f->size
+        && f->m[f->yx[0] + f->t[f->i].y[2]][f->yx[1] + f->t[f->i].x[2]] == '.')
         count++;
-    if (yx[0] + f.y[3] < n && yx[1] + f.x[3] < n && map[yx[0] + f.y[3]][yx[1] + f.x[3]] == '.')
+    if (f->yx[0] + f->t[f->i].y[3] < f->size
+        && f->yx[1] + f->t[f->i].x[3] < f->size
+        && f->m[f->yx[0] + f->t[f->i].y[3]][f->yx[1] + f->t[f->i].x[3]] == '.')
         count++;
     if (count == 4)
-        return (1);
-    return (0);
+        mSet(f);
 }
 
-void    mDel(t_elements figure, char **map, int *yx)
+void    mDel(t_elements f, char **m, int *yx, int i)
 {
-    map[yx[0] + figure.y[0]][yx[1] + figure.x[0]] = '.';
-    map[yx[0] + figure.y[1]][yx[1] + figure.x[1]] = '.';
-    map[yx[0] + figure.y[2]][yx[1] + figure.x[2]] = '.';
-    map[yx[0] + figure.y[3]][yx[1] + figure.x[3]] = '.';
+    m[yx[0] + f.y[0]][yx[1] + f.x[0]] = '.';
+    m[yx[0] + f.y[1]][yx[1] + f.x[1]] = '.';
+    m[yx[0] + f.y[2]][yx[1] + f.x[2]] = '.';
+    m[yx[0] + f.y[3]][yx[1] + f.x[3]] = '.';
     yx[0] = 0;
     yx[1] = 0;
 }
-
-void    mSet(t_elements figure, char **map, int *yx, char letter)
+void    mSet(t_global *f)
 {
-    map[yx[0] + figure.y[0]][yx[1] + figure.x[0]] = letter;
-    map[yx[0] + figure.y[1]][yx[1] + figure.x[1]] = letter;
-    map[yx[0] + figure.y[2]][yx[1] + figure.x[2]] = letter;
-    map[yx[0] + figure.y[3]][yx[1] + figure.x[3]] = letter;
-    yx[0] = 0;
-    yx[1] = 0;
+    f->m[f->yx[0] +  f->t[f->i].y[0]][f->yx[1] + f->t[f->i].x[0]] = f->t[f->i].field;
+    f->m[f->yx[0] +  f->t[f->i].y[1]][f->yx[1] + f->t[f->i].x[1]] = f->t[f->i].field;
+    f->m[f->yx[0] +  f->t[f->i].y[2]][f->yx[1] + f->t[f->i].x[2]] = f->t[f->i].field;
+    f->m[f->yx[0] +  f->t[f->i].y[3]][f->yx[1] + f->t[f->i].x[3]] = f->t[f->i].field;
+    f->yx[0] = 0;
+    f->yx[1] = 0;
 }
 
-char    **mCreate(int size)
+char    **mCreate(t_global *f)
 {
-    char    **map;
     int     k;
 
     k = 0;
-    if (map = (char **)malloc(sizeof(char *) * (size + 1)))
+    if (f->m = (char **)malloc(sizeof(char *) * (f->size + 1)))
     {
-        while (k < size)
+        while (k < f->size)
         {
-            map[k] = (char *)malloc(sizeof(char) * size + 1);
-            map[k][size] = '\0';
+            f->m[k] = (char *)malloc(sizeof(char) * f->size + 1);
+            f->m[k][f->size] = '\0';
             k++;
         }
-        map[size] = NULL;
+        f->m[f->size] = NULL;
     }
-    mapSet(map, size);
-    return (map);
+    mSet(f);
+    return (f->m);
 }
 
-void    cPlus(int *yx, int size)
+void    cPlus(t_global *f)
 {
-    if (yx[1] == size - 1)
+    if (f->yx[1] == f->size - 1)
     {
-        yx[0] += 1;
-        yx[1] = 0;
+        f->yx[0] += 1;
+        f->yx[1] = 0;
     }
     else
-        yx[1] += 1;
-}
-
-void    backtracking(char *buff, t_global *figure)
-{
-    int     size;
-    int     yx[2];
-    int     i;
-    int     z;
-    char    **map;
-    char    **mCopy;
-
-    size = 2;//make function which count init map size.
-    i = 0;
-    yx[0] = 0;
-    yx[1] = 0;
-    map = mCreate(size);
-    z = tCount(buff);
-    while (!bProcces(i, z, figure, map, yx, size))
-    {
-        mCopy = mRewrite(map, size, size++);
-        map = mRewrite(mCopy, size, size - 1);
-        yx[0] = 0;
-        yx[1] = 0;
-//        bProcces(map, yx, figure, size, i);
-//        i++;
-//        if (mDot(map, yx, size))
-//            if (mCheck(figure->ter[i], map, yx, size))
-//                mSet(figure->ter[i], map, yx, figure->ter[i++].field);
-//            else
-//                cPlus(yx, size);
-//        else
-//        {
-//            mCopy = mRewrite(map, size, size++);
-//            map = mRewrite(mCopy, size, size - 1);
-//            yx[0] = 0;
-//            yx[1] = 0;
-//        }
-    }
-    print(map,size);
-}
-
-int bProcces(int i, int z, t_global *figure, char **map, int *yx, int size)
-{
-    while (i < z)
-    {
-        if (mDot(map, yx, size))
-            if (mCheck(figure->ter[i], map, yx, size))
-            {
-                mSet(figure->ter[i], map, yx, figure->ter[i++].field);
-                if (bProcces(i + 1, z, figure, map, yx, size))
-                    return (1);
-                else
-                {
-                    mDel(figure->ter[i], map, yx);
-                    if (cPlus(yx, size))
-                        ;
-                    else
-                        i++;
-                }
-            }
-    }
-    return (0);
+        f->yx[1] += 1;
 }
 
 
-char    **mRewrite(char **map, int size1, int size2)
+char    **mRewrite(t_global *f, int size1, int size2)
 {
     int x;
     int y;
-    char **mCopy;
 
     y = 0;
-    mCopy = mCreate(size1);
+    f->mCopy = mCreate(size1);
     while (y < size2)
     {
         x = 0;
         while (x < size2)
         {
-            mCopy[y][x] = map[y][x];
+            f->mCopy[y][x] = f->m[y][x];
             x++;
         }
         y++;
     }
-    return (mCopy);
+    return (f->mCopy);
 }
 
-void    mapSet(char **map, int size)
+void    mapSet(t_global *f)
 {
     int     x;
     int     y;
 
     y = 0;
-    while (y < size)
+    while (y < f->size)
     {
         x = 0;
-        while (x < size)
+        while (x < f->size)
         {
-            map[y][x] = '.';
+            f->m[y][x] = '.';
             x++;
         }
         y++;
     }
 }
 
-void    print(char **map, int size)
+void    print(t_global *f)
 {
     int l = 0;
-    while (l < size)
+    while (l < f->size)
     {
-        printf("%s\n", map[l++]);
+        printf("%s\n", f->m[l++]);
     }
     printf("\n");
-}
-void    print1(t_elements figure)
-{
-    int a  = figure.x[0];
-    int b  = figure.y[0];
-    int a1 = figure.x[1];
-    int b1 = figure.y[1];
-    int a2 = figure.x[2];
-    int b2 = figure.y[2];
-    int a3 = figure.x[3];
-    int b3 = figure.y[3];
-    printf("x: %d %d %d %d\n", a, a1, a2, a3);
-    printf("y: %d %d %d %d\n", b, b1, b2, b3);
 }

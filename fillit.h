@@ -1,4 +1,3 @@
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -28,7 +27,13 @@ typedef struct		s_elements
 
 typedef struct		s_global
 {
-	t_elements		*ter;
+	t_elements		*t;             //tetr
+    int             size;
+    int             yx[2];
+    int             i;              //index
+    int             z;              // tetr count
+    char            **m;            //map
+    char            **mCopy;        //map copy
 }					t_global;
 
 int		            argCount(int argc, char **argv);
@@ -48,17 +53,17 @@ void                sFill(t_global *figure, char *buff);
 void    			sShuffle(t_global *figure, char *buff);
 void    			sShuffleX(t_global *figure, int i);
 void    			sShuffleY(t_global *figure, int i);
-char                **mCreate(int size);
-int                 *mDot(char **map, int *yx, int size);
-int                 mCheck(t_elements figure, char **map, int *yx, int size);
-void                mSet(t_elements figure, char **map, int *yx, char letter);
-char                **mCreate(int size);
 void                backtracking(char *buff, t_global *figure);
-void                mapSet(char **map, int size);
-void                print(char **map, int size);
-void                print1(t_elements figure);
-char                **mRewrite(char **map, int size1, int size2);
-void        print_check(t_global *figure, char *buff);
+void                print_check(t_global *figure, char *buff);
+
+int                 mDot(t_global *f);
+void                mCheck(t_global *f);
+void                mSet(t_global *f);
+char                **mCreate(t_global *f);
+void                cPlus(t_global *f);
+void                mapSet(t_global *f);
+char                **mRewrite(t_global *f, int size1, int size2);
+void                print(t_global *f);
 
 
 #endif
