@@ -23,11 +23,15 @@ int		    main(int argc, char **argv)
         initialization(figure, buff);
         sFill(figure, buff);
         sShuffle(figure, buff);
+        print(figure);
+
+        backtracking(figure);
+        print(figure);
     }
 	return (0);
 }
 
-void        initialization(t_global *figure, char **buff)
+void        initialization(t_global *figure, char *buff)
 {
     figure->t = (t_elements*)malloc(sizeof(t_elements) * tCount(buff));
     figure->z = tCount(buff);
@@ -35,6 +39,9 @@ void        initialization(t_global *figure, char **buff)
     figure->yx[0] = 0;
     figure->yx[1] = 0;
     figure->i = 0;
+    mapCreate(figure);
+    mapCopyCreate(figure);
+    //figure->m = ft_new_char_arr();
 }
 char        *validation(char *buff, int argc, char **argv)
 {
@@ -45,24 +52,24 @@ char        *validation(char *buff, int argc, char **argv)
     return (0);
 }
 
-void        print_check(t_global *figure, char *buff)
-{
-    int a = 0;
-    int l = 0;
-    int k = tCount(buff);
-    char **map;
-
-    map = mCreate(4);
-    while (l < k)
-    {
-        a = 0;
-        while (a < 4)
-        {
-            map[figure->t[l].y[a]][figure->t[l].x[a]] = figure->t[l].field;
-            a++;
-        }
-//        print(map, 4);
+//void        print_check(t_global *figure, char *buff)
+//{
+//    int a = 0;
+//    int l = 0;
+//    int k = tCount(buff);
+//    char **map;
+//
+//    map = mCreate(4);
+//    while (l < k)
+//    {
+//        a = 0;
+//        while (a < 4)
+//        {
+//            map[figure->t[l].y[a]][figure->t[l].x[a]] = figure->t[l].field;
+//            a++;
+//        }
+//       print(map, 4);
 //        mapSet(map, 4);
-        l++;
-    }
-}
+//        l++;
+//    }
+//}

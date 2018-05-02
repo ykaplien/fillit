@@ -53,17 +53,22 @@ void                sFill(t_global *figure, char *buff);
 void    			sShuffle(t_global *figure, char *buff);
 void    			sShuffleX(t_global *figure, int i);
 void    			sShuffleY(t_global *figure, int i);
-void                backtracking(char *buff, t_global *figure);
 void                print_check(t_global *figure, char *buff);
 
 int                 mDot(t_global *f);
 void                mCheck(t_global *f);
 void                mSet(t_global *f);
-char                **mCreate(t_global *f);
+char                **mCreateM(t_global *f);
 void                cPlus(t_global *f);
-void                mapSet(t_global *f);
-char                **mRewrite(t_global *f, int size1, int size2);
 void                print(t_global *f);
-
+void                mapIter(t_global *figure);
+void                initialization(t_global *figure, char *buff);
+int                 backtracking(t_global *figure);
+void                mCopyRewrite(t_global *f);
+void                mRewrite(t_global *f);
+void                mapCreate(t_global *f);
+void                mapCopyCreate(t_global *f);
+void                mapSet(t_global *f);
+void                mCopySet(t_global *f);
 
 #endif
