@@ -56,7 +56,7 @@ void    			sShuffleY(t_global *figure, int i);
 void                print_check(t_global *figure, char *buff);
 
 int                 mDot(t_global *f);
-void                mCheck(t_global *f);
+int                mCheck(t_global *f);
 void                mSet(t_global *f);
 char                **mCreateM(t_global *f);
 void                cPlus(t_global *f);
@@ -70,5 +70,7 @@ void                mapCreate(t_global *f);
 void                mapCopyCreate(t_global *f);
 void                mapSet(t_global *f);
 void                mCopySet(t_global *f);
+void    mDel(t_global *figure);
+
 
 #endif

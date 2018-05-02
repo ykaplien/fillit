@@ -2,33 +2,63 @@
 
 int    backtracking(t_global *figure)
 {
-    while (figure->i < figure->z)
+    if (figure->i == figure->z)
+        return (1);
+    figure->yx[0] = 0;
+    while (figure->yx[0] < figure->size)
+//           && figure->yx[1] < figure->size)
     {
-        if (mDot(figure))
+        figure->yx[1] = 0;
+        while (figure->yx[1] < figure->size)
         {
-            figure->i++;
-            if (backtracking(figure))
-                return (1);
-            else
-                figure->i--;
+            if (mDot(figure)) {
+                print(figure);
+                figure->i++;
+                if (!backtracking(figure)) {
+                    figure->i--;
+                    mDel(figure);
+                } else {
+                    return (1);
+                }
+            }
+            figure->yx[1]++;
         }
-        else
-        {
-            mapIter(figure);
-        }
+        figure->yx[0]++;
     }
     return (0);
 }
+//    if (figure->i == figure->z)
+//        return (1);
+//    if (figure->i < figure->z)
+//    {
+//        if (mDot(figure))
+//        {
+//            figure->i++;
+//            if (!backtracking(figure)) {
+//                figure->i--;
+//                figure->yx[0] = 0;
+//                figure->yx[1] = 0;
+//                backtracking(figure);
+//            }
+//        }
+//        else
+//        {
+//            mapIter(figure);
+//        }
+//    }
+//    return (0);
 
 void    mapIter(t_global *figure)
 {
     figure->size++;
+//    mapCopyCreate(figure);
+//    mCopyRewrite(figure);
     mapCreate(figure);
-    mCopyRewrite(figure);
-    mapCopyCreate(figure);
-    mRewrite(figure);
+//    mRewrite(figure);
     figure->yx[0] = 0;
     figure->yx[1] = 0;
+    figure->i = 0;
+   // backtracking(figure);
 }
 
 void        mCopyRewrite(t_global *f)
@@ -115,7 +145,7 @@ void    mapSet(t_global *f)
         while (l < f->size)
         {
             f->m[k][l] = '.';
-            printf("%c", f->m[k][l]);
+            //printf("%c", f->m[k][l]);
             l++;
         }
         k++;
@@ -134,7 +164,7 @@ void    mCopySet(t_global *f)
         while (l < f->size)
         {
             f->mCopy[k][l] = '.';
-            printf("%c", f->mCopy[k][l]);
+            //printf("%c", f->mCopy[k][l]);
             l++;
         }
         k++;
@@ -153,7 +183,7 @@ int     mDot(t_global *f)
         x = f->yx[1];
         while (x < f->size)
         {
-//            test = f->m[y][x];
+            test = f->m[y][x];
             if (f->m[y][x] == '.')
             {
                 f->yx[0] = y;
@@ -161,8 +191,8 @@ int     mDot(t_global *f)
                 if (f->yx[0] == f->size - 1
                     && f->yx[1] == f->size - 1 && f->i == 0)
                     return (0);
-                mCheck(f);
-//                return (1);
+                if (mCheck(f))
+                    return (1);
             }
             x++;
         }
@@ -171,7 +201,7 @@ int     mDot(t_global *f)
     return (0);
 }
 
-void     mCheck(t_global *f)
+int     mCheck(t_global *f)
 {
     int     count;
 
@@ -193,17 +223,36 @@ void     mCheck(t_global *f)
         && f->m[f->yx[0] + f->t[f->i].y[3]][f->yx[1] + f->t[f->i].x[3]] == '.')
         count++;
     if (count == 4)
+    {
         mSet(f);
+        return (1);
+    }
+    return (0);
 }
 
-void    mDel(t_elements f, char **m, int *yx, int i)
+void    mDel(t_global *figure)
 {
-    m[yx[0] + f.y[0]][yx[1] + f.x[0]] = '.';
-    m[yx[0] + f.y[1]][yx[1] + f.x[1]] = '.';
-    m[yx[0] + f.y[2]][yx[1] + f.x[2]] = '.';
-    m[yx[0] + f.y[3]][yx[1] + f.x[3]] = '.';
-    yx[0] = 0;
-    yx[1] = 0;
+    int     x;
+    int     y;
+
+    y = 0;
+    while (y < figure->size)
+    {
+        x = 0;
+        while (x < figure->size)
+        {
+            if (figure->m[y][x] == figure->t[figure->i].field)
+                figure->m[y][x] = '.';
+            x++;
+        }
+        y++;
+    }
+//    figure->m[figure->yx[0] + figure->t[figure->i].y[0]][figure->yx[1] + figure->t[figure->i].x[0]] = '.';
+//    figure->m[figure->yx[0] + figure->t[figure->i].y[1]][figure->yx[1] + figure->t[figure->i].x[1]] = '.';
+//    figure->m[figure->yx[0] + figure->t[figure->i].y[2]][figure->yx[1] + figure->t[figure->i].x[2]] = '.';
+//    figure->m[figure->yx[0] + figure->t[figure->i].y[3]][figure->yx[1] + figure->t[figure->i].x[3]] = '.';
+//    yx[0] = 0;
+//    yx[1] = 0;
 }
 
 void    mSet(t_global *f)

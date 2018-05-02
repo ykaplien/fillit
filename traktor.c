@@ -23,11 +23,16 @@ int		    main(int argc, char **argv)
         initialization(figure, buff);
         sFill(figure, buff);
         sShuffle(figure, buff);
-        print(figure);
+ //       print(figure);
+        while (!backtracking(figure))
+        {
+            mapIter(figure);
+            //print(figure);
+            figure->i = 0;
+        }
 
-        backtracking(figure);
-        print(figure);
     }
+    print(figure);
 	return (0);
 }
 
@@ -40,6 +45,7 @@ void        initialization(t_global *figure, char *buff)
     figure->yx[1] = 0;
     figure->i = 0;
     mapCreate(figure);
+    print(figure);
     mapCopyCreate(figure);
     //figure->m = ft_new_char_arr();
 }
