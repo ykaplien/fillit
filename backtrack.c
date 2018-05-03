@@ -12,7 +12,7 @@ int    backtracking(t_global *figure)
         while (figure->yx[1] < figure->size)
         {
             if (mDot(figure)) {
-                print(figure);
+                //print(figure);
                 figure->i++;
                 if (!backtracking(figure)) {
                     figure->i--;
@@ -284,4 +284,23 @@ void    print(t_global *f)
         printf("%s\n", f->m[l++]);
     }
     printf("\n");
+}
+
+void    print1(t_global *f, char *buff)
+{
+    int k;
+    int l;
+
+    k = 0;
+    l = 0;
+    while (l < tCount(buff))
+    {
+        k = 0;
+        while (k < 4)
+        {
+            printf("%s", f->t[k].x[4]);
+            k++;
+        }
+        l++;
+    }
 }

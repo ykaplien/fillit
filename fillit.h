@@ -60,7 +60,9 @@ int                mCheck(t_global *f);
 void                mSet(t_global *f);
 char                **mCreateM(t_global *f);
 void                cPlus(t_global *f);
-void                print(t_global *f);
+void                print(t_global *f);  // print
+void                print1(t_global *f, char *buff); // print
+
 void                mapIter(t_global *figure);
 void                initialization(t_global *figure, char *buff);
 int                 backtracking(t_global *figure);
