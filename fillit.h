@@ -22,6 +22,7 @@ typedef struct		s_elements
 {
 	int 			x[4];
 	int 			y[4];
+    int             yx[2];
 	char 			field;
 }					t_elements;
 

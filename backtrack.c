@@ -6,18 +6,27 @@ int    backtracking(t_global *figure)
         return (1);
     figure->yx[0] = 0;
     while (figure->yx[0] < figure->size)
-//           && figure->yx[1] < figure->size)
+           //&& figure->yx[1] < figure->size)
     {
         figure->yx[1] = 0;
         while (figure->yx[1] < figure->size)
         {
-            if (mDot(figure)) {
-                //print(figure);
+            if (mDot(figure))
+            {
+                print(figure);
+                figure->t[figure->i].yx[0] = figure->yx[0];
+                figure->t[figure->i].yx[1] = figure->yx[1];
                 figure->i++;
-                if (!backtracking(figure)) {
+                if (!backtracking(figure))
+                {
                     figure->i--;
                     mDel(figure);
-                } else {
+                    figure->yx[0] = figure->t[figure->i].yx[0];
+                    figure->yx[1] = figure->t[figure->i].yx[1];
+//                    figure->yx[1] = 0;
+                }
+                else
+                {
                     return (1);
                 }
             }
@@ -175,29 +184,35 @@ int     mDot(t_global *f)
 {
     int     x;
     int     y;
-    char test;
+//    char test;
 
     y = f->yx[0];
     while (y < f->size)
     {
-        x = f->yx[1];
+        x = 0;
         while (x < f->size)
         {
-            test = f->m[y][x];
+            if (x == f->size - 1
+                && y == f->size - 1)
+                return (0);
+//            test = f->m[y][x];
             if (f->m[y][x] == '.')
             {
-                f->yx[0] = y;
-                f->yx[1] = x;
-                if (f->yx[0] == f->size - 1
-                    && f->yx[1] == f->size - 1 && f->i == 0)
+                if (x == f->size - 1
+                    && y == f->size - 1 && f->i == 0)
                     return (0);
                 if (mCheck(f))
+                {
+                    f->yx[0] = y;
+                    f->yx[1] = x;
                     return (1);
+                }
             }
             x++;
         }
         y++;
     }
+    print(f);
     return (0);
 }
 
@@ -234,19 +249,27 @@ void    mDel(t_global *figure)
 {
     int     x;
     int     y;
+    int     z;
 
     y = 0;
-    while (y < figure->size)
+    z = 0;
+    while (y < figure->size && z < 4)
     {
         x = 0;
         while (x < figure->size)
         {
+            z = 0;
             if (figure->m[y][x] == figure->t[figure->i].field)
+            {
                 figure->m[y][x] = '.';
+                z++;
+            }
             x++;
         }
         y++;
     }
+//    figure->yx[0] = 0;
+//    figure->yx[1] = 0;
 //    figure->m[figure->yx[0] + figure->t[figure->i].y[0]][figure->yx[1] + figure->t[figure->i].x[0]] = '.';
 //    figure->m[figure->yx[0] + figure->t[figure->i].y[1]][figure->yx[1] + figure->t[figure->i].x[1]] = '.';
 //    figure->m[figure->yx[0] + figure->t[figure->i].y[2]][figure->yx[1] + figure->t[figure->i].x[2]] = '.';

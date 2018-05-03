@@ -15,18 +15,14 @@ void    sFill(t_global *figure, char *buff)
         ind = -1;
         while (ind <= 20)
         {
-            if (buff[++ind] == '#')
+            if (buff[++ind] == '#' && j < 4)
             {
                 figure->t[i].x[j] = ind % 5;
                 figure->t[i].y[j] = ind / 5;
-                figure->t[i].field = letter++;
-                printf("%d   ", figure->t[i].x[j]);
-                printf("%d", figure->t[i].y[j]);
-                printf("    %c\n", figure->t[i].field);
                 j++;
             }
         }
-        //figure->t[i].field = letter++;
+        figure->t[i].field = letter++;
         i++;
         j = 0;
         buff += 21;
