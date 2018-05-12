@@ -6,7 +6,7 @@
 /*   By: ykaplien <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/04 10:08:43 by ykaplien          #+#    #+#             */
-/*   Updated: 2018/05/04 10:08:43 by ykaplien         ###   ########.fr       */
+/*   Updated: 2018/05/11 12:19:50 by ykaplien         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,10 @@ int		t_smbls(char *buff)
 			hashs++;
 		ind++;
 	}
-	if (dots != 12 && hashs != 4)
-		error(2);
-	return (1);
+	if (dots == 12 && hashs == 4)
+		return (1);
+	error(2);
+	return (0);
 }
 
 int		t_relat(char *b)
